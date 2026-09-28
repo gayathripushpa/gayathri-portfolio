@@ -289,49 +289,6 @@ function initKnowledgeCards() {
 }
 
 /* ---------------------------------------------------------
-   13. CONTACT FORM (front-end only — no backend in this build)
-   Prevents the default GET submission and shows an inline
-   confirmation instead, so the UI is real even without a server.
---------------------------------------------------------- */
-function initContactForm() {
-  const form = document.querySelector('[data-contact-form]');
-  if (!form) return;
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const note = form.querySelector('[data-form-note]');
-    if (note) {
-      note.textContent = 'Thanks — this static build has no backend yet, so please use the email link above for now.';
-    }
-    form.reset();
-  });
-}
-
-/* ---------------------------------------------------------
-   14. DOWNLOAD CV BUTTON
-   Points at a placeholder path — swap assets/Gayathri-CV.pdf
-   for the real file when it's ready.
---------------------------------------------------------- */
-function initDownloadCv() {
-  document.querySelectorAll('[data-download-cv]').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      const path = 'assets/Gayathri-CV.pdf';
-      // If the file doesn't exist yet, let the user know instead of
-      // silently failing on a broken download.
-      fetch(path, { method: 'HEAD' }).then((res) => {
-        if (!res.ok) {
-          e.preventDefault();
-          alert('Add your CV file at assets/Gayathri-CV.pdf to enable this download.');
-        }
-      }).catch(() => {
-        e.preventDefault();
-        alert('Add your CV file at assets/Gayathri-CV.pdf to enable this download.');
-      });
-    });
-  });
-}
-
-/* ---------------------------------------------------------
    INIT — run every module once the DOM is ready.
 --------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
@@ -347,6 +304,4 @@ document.addEventListener('DOMContentLoaded', () => {
   initFiltering();
   initRoadmap();
   initKnowledgeCards();
-  initContactForm();
-  initDownloadCv();
 });
