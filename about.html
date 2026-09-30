@@ -78,6 +78,34 @@
     </div>
   </section>
 
+  <!-- ============ AGENTIC WORKFLOW DEMO ============ -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="tick"></span>Agentic AI &mdash; Interactive Demo</p>
+        <h2>Watch an agent work</h2>
+        <p>
+          A scripted simulation, not a live model or a connected tool — it exists to show how I
+          think about an agent loop: observe, reason, call a tool, check the result, and stop for a
+          human before anything real happens. See it applied to more workflows in the
+          <a href="ai-portfolio.html" style="color:var(--blue); border-bottom:1px solid var(--blue);">AI Portfolio</a>.
+        </p>
+      </div>
+
+      <div class="agent-console reveal">
+        <div class="agent-console__header">
+          <div class="agent-console__title"><span class="dot-live"></span> Agent: Weekly Status Reporter</div>
+          <div style="display:flex; align-items:center; gap:0.8rem;">
+            <span class="agent-console__badge">Simulated &mdash; no live data</span>
+            <button class="agent-console__replay" data-agent-replay type="button">Replay</button>
+          </div>
+        </div>
+        <div class="agent-console__log" data-agent-log aria-live="polite"></div>
+        <p class="agent-console__note">This is how I reason about agentic workflows in project delivery: every tool call is visible, and the agent checkpoints with a human before taking any action that reaches a real stakeholder.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ PROFILE ============ -->
   <section class="section">
     <div class="container">
@@ -201,6 +229,7 @@
 </button>
 
 <script src="js/main.js"></script>
+<script src="js/agent-demo.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
